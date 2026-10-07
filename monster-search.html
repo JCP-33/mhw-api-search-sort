@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monster Hunter: World Search and Sort</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="index.js" defer></script>
+  </head>
+  <body>
+    <section id="landing">
+      <nav>
+        <div class="nav__logo--wrapper">
+          <img src="assets/MHWorld-Logo.png" alt="" class="nav__logo--img" />
+          <div class="nav__logo--title">MHW Search & Sort</div>
+        </div>
+        <div class="nav__links">
+          <a href="#" class="nav__link">Home</a>
+          <a href="#" class="nav__link">Search</a>
+          <a href="#" class="nav__link">Contact</a>
+        </div>
+      </nav>
+      <header>
+        <div class="container">
+          <div class="row">
+            <div class="banner">
+              <h1 class="banner__title">
+                Monster Hunter: World Search and Sort
+              </h1>
+              <div class="banner__search">
+                <input type="text" class="banner__search--input" />
+                <button class="banner__search--button" type="submit">
+                  Search
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+    </section>
+    <main>
+      <section id="monsters">
+        <div class="container">
+          <div class="row">
+            <div class="filter__menu">
+              <h2 class="filter__menu--title">Filter by:</h2>
+              <select name="type" id="type">
+                <option selected disabled>Type</option>
+                <option value="SMALL-MONSTERS">Small Monster</option>
+                <option value="LARGE-MONSTERS">Large Monster</option>
+              </select>
+              <select name="species" id="type">
+                <option selected disabled>Species</option>
+                <option value="BIRD-WYVERN">Bird Wyverns</option>
+                <option value="BRUTE-WYVERN">Brute Wyverns</option>
+                <option value="FANGED-WYVERN">Fanged Wyverns</option>
+                <option value="FISH">Fishes</option>
+                <option value="FLYING-WYVERN">Flying Wyverns</option>
+                <option value="HERBIVORE">Herbivores</option>
+                <option value="NEOPTERON">Neopterons</option>
+                <option value="PISCINE-WYVERN">Piscine Wyverns</option>
+                <option value="RELICT">Relicts</option>
+                <option value="WINGDRAKE">Wingdrakes</option>
+                <option value="ELDER-DRAGON">Elder Dragons</option>
+              </select>
+              <select name="element" id="type">
+                <option selected disabled>Element</option>
+                <option value="FIRE">Fire</option>
+                <option value="WATER">Water</option>
+                <option value="THUNDER">Thunder</option>
+                <option value="ICE">Ice</option>
+                <option value="DRAGON">Dragon</option>
+              </select>
+              <select name="resistance" id="type">
+                <option selected disabled>Resistance</option>
+                <option value="FIRE-RESISTANCE">Fire</option>
+                <option value="WATER-RESISTANCE">Water</option>
+                <option value="THUNDER-RESISTANCE">Thunder</option>
+                <option value="ICE-RESISTANCE">Ice</option>
+                <option value="DRAGON-RESISTANCE">Dragon</option>
+              </select>
+              <select name="weakness" id="type">
+                <option selected disabled>Weakness</option>
+                <option value="FIRE-WEAKNESS">Fire</option>
+                <option value="WATER-WEAKNESS">Water</option>
+                <option value="THUNDER-WEAKNESS">Thunder</option>
+                <option value="ICE-WEAKNESS">Ice</option>
+                <option value="DRAGON-WEAKNESS">Dragon</option>
+              </select>
+            </div>
+            <div class="monster__list">
+              <div class="monster">
+                <div class="monster__content">
+                  <figure class="monster__img--wrapper">
+                    <img
+                      src="assets/monsters/Anjanath.png"
+                      alt=""
+                      class="monster__img"
+                    />
+                    <figcaption class="monster__title">Anjanath</figcaption>
+                  </figure>
+                  <div class="monster__specs">
+                    <p class="monster__para monster__type">
+                      <b>Type:</b> Large
+                    </p>
+                    <p class="monster__para monster__species">
+                      <b>Species:</b> Brute Wyvern
+                    </p>
+                    <p class="monster__element"><b>Elements:</b> Fire</p>
+                    <p class="monster__para monster__resistance">
+                      <b>Resistances:</b> Fire
+                    </p>
+                    <p class="monster__para monster__weakness">
+                      <b>Weaknesses:</b> Water
+                    </p>
+                  </div>
+                </div>
+                <div class="monster__description--bg">
+                  <p class="monster__para monster__description">
+                    The Anjanath patrols the Ancient Forest, looking for its
+                    favorite meal, Aptonoth. This belligerent monster will
+                    attack anything without hesitation.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
+</html>
