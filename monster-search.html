@@ -44,48 +44,53 @@
           <div class="row">
             <div class="filter__menu">
               <h2 class="filter__menu--title">Filter by:</h2>
-              <select name="type" id="type">
-                <option selected disabled>Type</option>
-                <option value="SMALL-MONSTERS">Small Monster</option>
-                <option value="LARGE-MONSTERS">Large Monster</option>
+              <select onchange="filterMonsters(event)" name="type" id="type">
+                <option value="" selected disabled>Type</option>
+                <option value="">Any</option>
+                <option value="small">Small</option>
+                <option value="large">Large</option>
               </select>
-              <select name="species" id="type">
-                <option selected disabled>Species</option>
-                <option value="BIRD-WYVERN">Bird Wyverns</option>
-                <option value="BRUTE-WYVERN">Brute Wyverns</option>
-                <option value="FANGED-WYVERN">Fanged Wyverns</option>
-                <option value="FISH">Fishes</option>
-                <option value="FLYING-WYVERN">Flying Wyverns</option>
-                <option value="HERBIVORE">Herbivores</option>
-                <option value="NEOPTERON">Neopterons</option>
-                <option value="PISCINE-WYVERN">Piscine Wyverns</option>
-                <option value="RELICT">Relicts</option>
-                <option value="WINGDRAKE">Wingdrakes</option>
-                <option value="ELDER-DRAGON">Elder Dragons</option>
+              <select onchange="filterMonsters(event)" name="species" id="species">
+                <option value="" selected disabled>Species</option>
+                <option value="">Any</option>
+                <option value="bird wyvern">Bird Wyverns</option>
+                <option value="brute wyvern">Brute Wyverns</option>
+                <option value="fanged wyvern">Fanged Wyverns</option>
+                <option value="fish">Fishes</option>
+                <option value="flying wyvern">Flying Wyverns</option>
+                <option value="herbivore">Herbivores</option>
+                <option value="neopteron">Neopterons</option>
+                <option value="piscine wyvern">Piscine Wyverns</option>
+                <option value="relict">Relicts</option>
+                <option value="wingdrake">Wingdrakes</option>
+                <option value="elder dragon">Elder Dragons</option>
               </select>
-              <select name="element" id="type">
-                <option selected disabled>Element</option>
-                <option value="FIRE">Fire</option>
-                <option value="WATER">Water</option>
-                <option value="THUNDER">Thunder</option>
-                <option value="ICE">Ice</option>
-                <option value="DRAGON">Dragon</option>
+              <select onchange="filterMonsters(event)" name="element" id="element">
+                <option value="" selected disabled>Element</option>
+                <option value="">Any</option>
+                <option value="fire">Fire</option>
+                <option value="water">Water</option>
+                <option value="thunder">Thunder</option>
+                <option value="ice">Ice</option>
+                <option value="dragon">Dragon</option>
               </select>
-              <select name="resistance" id="type">
-                <option selected disabled>Resistance</option>
-                <option value="FIRE-RESISTANCE">Fire</option>
-                <option value="WATER-RESISTANCE">Water</option>
-                <option value="THUNDER-RESISTANCE">Thunder</option>
-                <option value="ICE-RESISTANCE">Ice</option>
-                <option value="DRAGON-RESISTANCE">Dragon</option>
+              <select onchange="filterMonsters(event)" name="resistance" id="resistance">
+                <option value="" selected disabled>Resistance</option>
+                <option value="">Any</option>
+                <option value="fire">Fire</option>
+                <option value="water">Water</option>
+                <option value="thunder">Thunder</option>
+                <option value="ice">Ice</option>
+                <option value="dragon">Dragon</option>
               </select>
-              <select name="weakness" id="type">
-                <option selected disabled>Weakness</option>
-                <option value="FIRE-WEAKNESS">Fire</option>
-                <option value="WATER-WEAKNESS">Water</option>
-                <option value="THUNDER-WEAKNESS">Thunder</option>
-                <option value="ICE-WEAKNESS">Ice</option>
-                <option value="DRAGON-WEAKNESS">Dragon</option>
+              <select onchange="filterMonsters(event)" name="weakness" id="weakness">
+                <option value="" selected disabled>Weakness</option>
+                <option value="">Any</option>
+                <option value="fire">Fire</option>
+                <option value="water">Water</option>
+                <option value="thunder">Thunder</option>
+                <option value="ice">Ice</option>
+                <option value="dragon">Dragon</option>
               </select>
             </div>
             <div class="monster__list">
@@ -128,6 +133,8 @@
         </div>
       </section>
     </main>
-    <footer></footer>
+    <footer>
+      
+    </footer>
   </body>
 </html>

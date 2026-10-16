@@ -4,16 +4,23 @@ const monsterListEL = document.querySelector(".monster__list");
 let monsters = [];
 
 // this function is to pull the data to HTML
-async function main() {
-  const monsterData = await fetch("https://mhw-db.com/monsters");
-  monsters = await monsterData.json();
-  monsterListEL.innerHTML = monsters
+function renderMonsters(monsterArray) {
+  monsterListEL.innerHTML = monsterArray
     .map((monster) => monsterHTML(monster))
     .join("");
-  // console.log(monster);
+}
+
+// this function pulls and translates the data from the API
+async function main(filtered) {
+  const monsterData = await fetch("https://mhw-db.com/monsters");
+  monsters = await monsterData.json();
+  renderMonsters(monsters);
 }
 
 main();
+
+
+
 
 // this is the HTML that is inserted for the main() function
 function monsterHTML(monster) {
@@ -56,16 +63,46 @@ const searchMonster = document.querySelector(".banner__search--input");
 // adding event listener so the console knows when the input changes
 searchMonster.addEventListener("input", (event) => {
   const searchedMonsters = event.target.value;
-  const filteredMonster = monsters.filter(monster => {
-    return monster.name.toLowerCase().includes(searchedMonsters.toLowerCase())
+  const filteredMonster = monsters.filter((monster) => {
+    return monster.name.toLowerCase().includes(searchedMonsters.toLowerCase());
   });
 
   // this if/else function was made with assistance from Ducky AI as self-researched solutions fell short in final testing. this checks to see if the object can exist within the array before displaying on client side
   if (filteredMonster.length > 0) {
     monsterListEL.innerHTML = filteredMonster.map(monsterHTML).join("");
-  } 
-  else {
+  } else {
     monsterListEL.innerHTML = "<p>No monsters found.</p>";
   }
-  monsterHTML(filteredMonster)
+  monsterHTML(filteredMonster);
 });
+
+// this function is for the filter dropdowns
+function filterMonsters() {
+  const type = document.getElementById("type").value;
+  const species = document.getElementById("species").value;
+  const element = document.getElementById("element").value;
+  const weaknesses = document.getElementById("weakness").value;
+  const resistances = document.getElementById("resistance").value;
+
+  const filtered = monsters.filter((monster) => {
+    const typeMatch = type === "" || monster.type === type;
+    const speciesMatch = species === "" || monster.species === species;
+    const elementMatch = element === "" || monster.elements?.includes(element);
+    const weaknessMatch =
+      weaknesses === "" ||
+      monster.weaknesses?.some((weak) => weak.element === weaknesses && weak.stars === 3);
+    const resistanceMatch =
+      resistances === "" ||
+      monster.resistances?.some((resist) => resist.element === resistances);
+    return (
+      typeMatch &&
+      speciesMatch &&
+      elementMatch &&
+      weaknessMatch &&
+      resistanceMatch
+    );
+  });
+
+  renderMonsters(filtered);
+  return filtered;
+}
