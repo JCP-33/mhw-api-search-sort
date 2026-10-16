@@ -3,24 +3,23 @@
 const monsterListEL = document.querySelector(".monster__list");
 let monsters = [];
 
+// this function pulls and translates the data from the API
+async function main(filtered) {
+  document.querySelector(".monsters__loader--wrapper").innerHTML = `<div class="monsters__loader"><i class="fas fa-spinner monsters__loading--spinner"></i></div>`;;
+  const monsterData = await fetch("https://mhw-db.com/monsters");
+  monsters = await monsterData.json();
+  document.querySelector(".monsters__loader--wrapper").innerHTML = '';
+  renderMonsters(monsters);
+}
+
+main();
+
 // this function is to pull the data to HTML
 function renderMonsters(monsterArray) {
   monsterListEL.innerHTML = monsterArray
     .map((monster) => monsterHTML(monster))
     .join("");
 }
-
-// this function pulls and translates the data from the API
-async function main(filtered) {
-  const monsterData = await fetch("https://mhw-db.com/monsters");
-  monsters = await monsterData.json();
-  renderMonsters(monsters);
-}
-
-main();
-
-
-
 
 // this is the HTML that is inserted for the main() function
 function monsterHTML(monster) {
@@ -90,7 +89,9 @@ function filterMonsters() {
     const elementMatch = element === "" || monster.elements?.includes(element);
     const weaknessMatch =
       weaknesses === "" ||
-      monster.weaknesses?.some((weak) => weak.element === weaknesses && weak.stars === 3);
+      monster.weaknesses?.some(
+        (weak) => weak.element === weaknesses && weak.stars === 3,
+      );
     const resistanceMatch =
       resistances === "" ||
       monster.resistances?.some((resist) => resist.element === resistances);

@@ -6,6 +6,10 @@
     <title>Monster Hunter: World Search and Sort</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="index.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/2e872fc204.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <section id="landing">
@@ -28,7 +32,11 @@
                 Monster Hunter: World Search and Sort
               </h1>
               <form class="banner__search">
-                <input type="text" class="banner__search--input" placeholder="Monster Name"/>
+                <input
+                  type="text"
+                  class="banner__search--input"
+                  placeholder="Monster Name"
+                />
                 <!-- <button class="banner__search--button" type="submit">
                   Search
                 </button> -->
@@ -50,7 +58,11 @@
                 <option value="small">Small</option>
                 <option value="large">Large</option>
               </select>
-              <select onchange="filterMonsters(event)" name="species" id="species">
+              <select
+                onchange="filterMonsters(event)"
+                name="species"
+                id="species"
+              >
                 <option value="" selected disabled>Species</option>
                 <option value="">Any</option>
                 <option value="bird wyvern">Bird Wyverns</option>
@@ -65,7 +77,11 @@
                 <option value="wingdrake">Wingdrakes</option>
                 <option value="elder dragon">Elder Dragons</option>
               </select>
-              <select onchange="filterMonsters(event)" name="element" id="element">
+              <select
+                onchange="filterMonsters(event)"
+                name="element"
+                id="element"
+              >
                 <option value="" selected disabled>Element</option>
                 <option value="">Any</option>
                 <option value="fire">Fire</option>
@@ -74,7 +90,11 @@
                 <option value="ice">Ice</option>
                 <option value="dragon">Dragon</option>
               </select>
-              <select onchange="filterMonsters(event)" name="resistance" id="resistance">
+              <select
+                onchange="filterMonsters(event)"
+                name="resistance"
+                id="resistance"
+              >
                 <option value="" selected disabled>Resistance</option>
                 <option value="">Any</option>
                 <option value="fire">Fire</option>
@@ -83,7 +103,11 @@
                 <option value="ice">Ice</option>
                 <option value="dragon">Dragon</option>
               </select>
-              <select onchange="filterMonsters(event)" name="weakness" id="weakness">
+              <select
+                onchange="filterMonsters(event)"
+                name="weakness"
+                id="weakness"
+              >
                 <option value="" selected disabled>Weakness</option>
                 <option value="">Any</option>
                 <option value="fire">Fire</option>
@@ -93,48 +117,36 @@
                 <option value="dragon">Dragon</option>
               </select>
             </div>
+            <div class="monsters__loader--wrapper">
+
+            </div>
             <div class="monster__list">
-              <div class="monster">
-                <div class="monster__content">
-                  <figure class="monster__img--wrapper">
-                    <img
-                      src="assets/monsters/Anjanath.png"
-                      alt=""
-                      class="monster__img"
-                    />
-                    <figcaption class="monster__title">Anjanath</figcaption>
-                  </figure>
-                  <div class="monster__specs">
-                    <p class="monster__para monster__type">
-                      <b>Type:</b> Large
-                    </p>
-                    <p class="monster__para monster__species">
-                      <b>Species:</b> Brute Wyvern
-                    </p>
-                    <p class="monster__element"><b>Elements:</b> Fire</p>
-                    <p class="monster__para monster__resistance">
-                      <b>Resistances:</b> Fire
-                    </p>
-                    <p class="monster__para monster__weakness">
-                      <b>Weaknesses:</b> Water
-                    </p>
-                  </div>
-                </div>
-                <div class="monster__description--bg">
-                  <p class="monster__para monster__description">
-                    The Anjanath patrols the Ancient Forest, looking for its
-                    favorite meal, Aptonoth. This belligerent monster will
-                    attack anything without hesitation.
-                  </p>
-                </div>
-              </div>
+              
             </div>
           </div>
         </div>
       </section>
     </main>
     <footer>
-      
+      <div class="container">
+        <div class="row">
+          <a href="#">
+            <figure class="footer__logo">
+              <img
+                src="assets/MHWorld-Logo.png"
+                class="footer__logo--img"
+                alt=""
+              />
+            </figure>
+          </a>
+          <div class="footer__links">
+            <a href="#" class="footer__link">Home</a>
+            <a class="footer__link no-cursor">Search</a>
+            <a class="footer__link no-cursor">Contact</a>
+          </div>
+          <div class="footer__copyright">Copyright &copy; Monster Hunter World: Search and Sort</div>
+        </div>
+      </div>
     </footer>
   </body>
 </html>
