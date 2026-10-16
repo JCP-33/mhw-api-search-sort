@@ -5,10 +5,11 @@ let monsters = [];
 
 // this function pulls and translates the data from the API
 async function main(filtered) {
-  document.querySelector(".monsters__loader--wrapper").innerHTML = `<div class="monsters__loader"><i class="fas fa-spinner monsters__loading--spinner"></i></div>`;;
+  document.querySelector(".monsters__loader--wrapper").innerHTML =
+    `<div class="monsters__loader"><i class="fas fa-spinner monsters__loading--spinner"></i></div>`;
   const monsterData = await fetch("https://mhw-db.com/monsters");
   monsters = await monsterData.json();
-  document.querySelector(".monsters__loader--wrapper").innerHTML = '';
+  document.querySelector(".monsters__loader--wrapper").innerHTML = "";
   renderMonsters(monsters);
 }
 
@@ -104,6 +105,9 @@ function filterMonsters() {
     );
   });
 
-  renderMonsters(filtered);
-  return filtered;
+  if (filtered.length === 0) {
+    monsterListEL.innerHTML = "<p>Monster does not exist</p>";
+  } else {
+    renderMonsters(filtered);
+  }
 }
