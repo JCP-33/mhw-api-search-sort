@@ -61,19 +61,22 @@ function monsterHTML(monster) {
 const searchMonster = document.querySelector(".banner__search--input");
 
 // adding event listener so the console knows when the input changes
-searchMonster.addEventListener("input", (event) => {
-  const searchedMonsters = event.target.value;
-  const filteredMonster = monsters.filter((monster) => {
-    return monster.name.toLowerCase().includes(searchedMonsters.toLowerCase());
-  });
+searchMonster.addEventListener("input", async (event) => {
+  const searchedMonster = event.target.value.toLowerCase();
+  document.querySelector(".monsters__loader--wrapper").innerHTML =
+    `<div class="monsters__loader"><i class="fas fa-spinner monsters__loading--spinner"></i></div>`;
+  const response = await fetch(
+    `https://mhw-db.com/monsters?q={"name":"${searchedMonster}"}`,
+  );
+  const searchedMonsters = await response.json();
+  document.querySelector(".monsters__loader--wrapper").innerHTML = "";
 
   // this if/else function was made with assistance from Ducky AI as self-researched solutions fell short in final testing. this checks to see if the object can exist within the array before displaying on client side
-  if (filteredMonster.length > 0) {
-    monsterListEL.innerHTML = filteredMonster.map(monsterHTML).join("");
+  if (searchedMonsters.length > 0) {
+    monsterListEL.innerHTML = searchedMonsters.map(monsterHTML).join("");
   } else {
     monsterListEL.innerHTML = "<p>No monsters found.</p>";
   }
-  monsterHTML(filteredMonster);
 });
 
 // this function is for the filter dropdowns
